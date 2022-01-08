@@ -4,6 +4,9 @@ import {useState, useEffect} from 'react'
 
 import {Input} from "semantic-ui-react"
 import WordList from './Wordlist';
+import GithubCorner from 'react-github-corners'
+import 'react-github-corners/dist/GithubCorner.css'
+
 
 function update(callback) {
   function onChange(event) {
@@ -19,6 +22,12 @@ function App() {
 
   return (
     <div className="App">
+        <GithubCorner
+          url="https://github.com/joshgordon/5words"
+          target="_blank"
+        />
+
+
         <Input placeholder="Regex" value={regex} onChange={update(setRegex)} type="text"></Input>
         <Input placeholder="Must include" value={must} onChange={update(setMust)} type="text"></Input>
         <Input placeholder="Can't include" value={cant} onChange={update(setCant)} type="text"></Input>

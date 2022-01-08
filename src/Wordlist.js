@@ -4,7 +4,7 @@ import {Message, List, ListItem} from 'semantic-ui-react'
 function WordList(props) {
   let [words, setWords] = useState([])
   useEffect(() => {
-    fetch("/5words.txt").then((res) => res.text()).then((wordlist) => setWords(wordlist.split("\n")))
+    fetch("5words.txt").then((res) => res.text()).then((wordlist) => setWords(wordlist.split("\n")))
   }, [])
 
   let [re, setre] = useState(null)
