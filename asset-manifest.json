@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/joshgordon.github.io/5words/static/css/main.073c9b0a.css",
+    "main.js": "/joshgordon.github.io/5words/static/js/main.05a3cf81.js",
+    "static/js/787.3500bfec.chunk.js": "/joshgordon.github.io/5words/static/js/787.3500bfec.chunk.js",
+    "index.html": "/joshgordon.github.io/5words/index.html",
+    "main.073c9b0a.css.map": "/joshgordon.github.io/5words/static/css/main.073c9b0a.css.map",
+    "main.05a3cf81.js.map": "/joshgordon.github.io/5words/static/js/main.05a3cf81.js.map",
+    "787.3500bfec.chunk.js.map": "/joshgordon.github.io/5words/static/js/787.3500bfec.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.05a3cf81.js"
+  ]
+}
