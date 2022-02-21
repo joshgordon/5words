@@ -28,27 +28,29 @@ function WordList(props) {
 
   useEffect(() => {
 
-    setWordList(
-      words.filter((word) => {
-        if (re.test(word)) {
-          // go through the musts:
-          for (let ii=0; ii < must.length; ii++) {
-            if (word.indexOf(must[ii]) < 0) {
-              return false
+    if (re !== null) {
+      setWordList(
+        words.filter((word) => {
+          if (re.test(word)) {
+            // go through the musts:
+            for (let ii=0; ii < must.length; ii++) {
+              if (word.indexOf(must[ii]) < 0) {
+                return false
+              }
             }
-          }
 
-          //and the cant's:
-          for (let ii=0; ii < cant.length; ii++) {
-            if (word.indexOf(cant[ii]) >= 0) {
-              return false
+            //and the cant's:
+            for (let ii=0; ii < cant.length; ii++) {
+              if (word.indexOf(cant[ii]) >= 0) {
+                return false
+              }
             }
+            return true
           }
-          return true
-        }
-      return false
-      })
-    )
+        return false
+        })
+      )
+      }
 
     
   }, [must, cant, re, words])
@@ -64,7 +66,7 @@ function WordList(props) {
         <p>Total Words: {wordlist.length}</p>
         <List>
           {wordlist.map(word => (
-            <ListItem>{word}</ListItem>
+            <ListItem key={word}>{word}</ListItem>
           ))}
 
         </List>
