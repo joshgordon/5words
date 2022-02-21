@@ -8,6 +8,7 @@ function WordList(props) {
   }, [])
 
   let [re, setre] = useState(null)
+  let [wordlist, setWordList] = useState([])
 
   let must = props.must
   let cant = props.cant
@@ -23,7 +24,34 @@ function WordList(props) {
     catch (e) {
         setre(null)
     }
-  }, [props.regex])
+  }, [regex])
+
+  useEffect(() => {
+
+    setWordList(
+      words.filter((word) => {
+        if (re.test(word)) {
+          // go through the musts:
+          for (let ii=0; ii < must.length; ii++) {
+            if (word.indexOf(must[ii]) < 0) {
+              return false
+            }
+          }
+
+          //and the cant's:
+          for (let ii=0; ii < cant.length; ii++) {
+            if (word.indexOf(cant[ii]) >= 0) {
+              return false
+            }
+          }
+          return true
+        }
+      return false
+      })
+    )
+
+    
+  }, [must, cant, re, words])
 
   if (re === null) {
         return (<Message warning>
@@ -32,30 +60,15 @@ function WordList(props) {
         </Message>)
   }
     return (
+      <div >
+        <p>Total Words: {wordlist.length}</p>
         <List>
-          {words.filter((word) => {
-            if (re.test(word)) {
-              // go through the musts:
-              for (let ii=0; ii < must.length; ii++) {
-                if (word.indexOf(must[ii]) < 0) {
-                  return false
-                }
-              }
-
-              //and the cant's:
-              for (let ii=0; ii < cant.length; ii++) {
-                if (word.indexOf(cant[ii]) >= 0) {
-                  return false
-                }
-              }
-              return true
-            }
-          return false
-          }).map(word => (
+          {wordlist.map(word => (
             <ListItem>{word}</ListItem>
           ))}
 
         </List>
+      </div>
     )
 }
 

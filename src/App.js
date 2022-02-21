@@ -1,6 +1,6 @@
 import './App.css';
 // import 'semantic-ui-css/semantic.min.css'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 import {Input} from "semantic-ui-react"
 import WordList from './Wordlist';
